@@ -1,0 +1,16 @@
+FROM python:3.11-bookworm
+
+RUN apt update \
+    && apt -y upgrade \
+    && apt -y --no-install-recommends install wamerican-huge
+
+RUN mkdir /app
+WORKDIR /app
+
+COPY python/requirements.txt /app/
+RUN pip install --upgrade --no-cache-dir -r requirements.txt
+
+COPY python/src/lgrv /app/lgrv
+EXPOSE 8000
+
+CMD ["uvicorn", "lgrv.main:app", "--host", "0.0.0.0"]
