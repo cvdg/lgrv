@@ -1,0 +1,22 @@
+[project]
+name = "lgrv"
+version = "0.1.0"
+description = "lgrv / landgrave"
+authors = [
+    {name = "Cees van de Griend", email = "cees.van.de.griend@protonmail.com"},
+]
+dependencies = [
+    "fastapi>=0.108.0",
+    "uvicorn>=0.25.0",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "EUPL-1.2"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+package-type = "library"
